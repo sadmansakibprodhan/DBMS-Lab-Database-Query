@@ -1,0 +1,21 @@
+SELECT * FROM instructor,teaches WHERE instructor.id = teaches.id AND dept_name ='Comp.sci'
+
+SELECT student.ID,student.name,student.dept_name FROM student,takes WHERE student.id = takes.id AND semester = 'Fall' AND year ='2009'
+
+SELECT * FROM teaches,instructor WHERE teaches.ID = instructor.ID AND course_id = 'CS-101'
+
+SELECT * FROM teaches,instructor WHERE course_id = 'CS-101'
+
+
+SELECT * FROM student NATURAL JOIN takes WHERE semester = 'Fall' AND year ='2009'
+
+SELECT S_id FROM Instructor, Advisor,student  WHERE instructor.ID = i_ID AND instructor.dept_name ='Comp. Sci.' AND s_ID = student.ID
+
+
+SELECT * FROM instructor JOIN advisor ON(instructor.id = advisor.i_ID)
+WHERE dept_name = 'Comp. Sci.'
+
+SELECT * FROM instructor WHERE instructor.name LIKE '_____%'
+
+//for length
+SELECT name,ID,dept_name FROM instructor WHERE instructor.name LIKE '_____%' ORDER by instructor.ID DESC or Asc

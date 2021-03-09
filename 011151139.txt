@@ -1,0 +1,17 @@
+Sadman Sakib Prodhan
+ID:011151139
+
+
+1.SELECT course.course_id,course.title,course.dept_name FROM section NATURAL JOIN course WHERE room_number = 514
+
+2.SELECT student.ID,student.name,student.dept_name FROM student NATURAL JOIN takes WHERE grade ='A' AND semester = 'Spring' AND year ='2010' AND course_id = 'CS-101'
+
+3.SELECT student.ID,student.name,student.dept_name FROM Instructor, Advisor,student  WHERE instructor.ID = i_ID AND instructor.dept_name ='Finance' AND s_ID = student.ID
+
+4.(SELECT instructor.ID FROM instructor NATURAL JOIN takes WHERE semester = 'Spring' AND year ='2010')
+UNION
+(SELECT instructor.ID FROM instructor NATURAL JOIN takes WHERE semester = 'Fall' AND year ='2009')
+
+5.(SELECT section.course_id,course.title FROM  section NATURAL JOIN course WHERE semester = 'Spring' AND year ='2010')
+UNION
+(SELECT section.course_id,course.title FROM section NATURAL JOIN course WHERE semester = 'Fall' AND year ='2009')

@@ -1,0 +1,27 @@
+Find the name of all Department where total salary is greater than the Average Salary of all department
+
+Ans: SELECT dept_name FROM(SELECT AVG(Salary) as Avg_Sal FROM instructor) as T1,
+(SELECT dept_name ,SUM(salary) as total_sal FROM instructor GROUP by dept_name)as T2 WHERE Avg_Sal < total_Sal
+
+or using having
+
+SELECT dept_name ,SUM(salary) as total_sal 
+ FROM instructor 
+ GROUP by dept_name 
+ HAVING total_Sal>(SELECT AVG(Salary) as Avg_Sal FROM instructor)
+
+Find courses offered in fall 2009 and in spring 2010
+
+Ans:SELECT DISTINCT course_id FROM section WHERE semester = 'Fall' AND year = 2009 AND
+ course_id IN(SELECT course_id FROM section WHERE semester = 'Spring' AND year = 2010)
+
+Find how many instructor from each deperment 
+SELECT COUNT(ID) FROM instructor GROUP by dept_name
+
+**Find how many instructor from each deperment and the maximum instructor of which depertment
+
+///project
+for run http://localhost/project/formphp.php
+for run http://localhost/project/firstphpconnect.php
+
+echo means printf in html

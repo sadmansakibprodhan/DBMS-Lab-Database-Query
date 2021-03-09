@@ -1,0 +1,7 @@
+
+SELECT * FROM `instructor`,(SELECT MAX(salary)As max_Sal from instructor) AS T1 WHERE salary = T1.Max_sal
+
+SELECT * FROM `instructor`,(SELECT MIN(salary)As Min_Sal from instructor WHERE dept_name = 'Comp. Sci.') AS T1 WHERE salary > T1.Min_sal && dept_name != 'Comp. Sci.'
+
+SELECT T1.b1-T2.b2 FROM (SELECT  sum(budget)As b1 from department WHERE dept_name = 'Comp. Sci.') as T1,
+(SELECT sum(budget)As b2 from  department WHERE dept_name = 'Elec. Eng.') AS T2

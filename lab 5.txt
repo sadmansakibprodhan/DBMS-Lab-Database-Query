@@ -1,0 +1,25 @@
+SELECT COUNT(ID) FROM student WHERE 1
+
+SELECT MAX(salary) FROM instructor WHERE 1
+
+SELECT MAX(salary) FROM instructor WHERE dept_name = 'Comp. Sci.'
+
+SELECT * FROM `instructor` GROUP BY dept_name
+
+SELECT  dept_name,AVG(salary) FROM `instructor` GROUP BY dept_name
+
+SELECT  dept_name,AVG(salary) FROM `instructor` GROUP BY dept_name HAVING AVG(salary) > 50000
+
+SELECT dept_name, COUNT(id) as num FROM student GROUP BY dept_name HAVING num >= 3
+
+SELECT  dept_name,SUM(credits) FROM course GROUP BY dept_name SELECT  dept_name,
+
+SELECT dept_name,SUM(credits) as total FROM instructor NATURAL JOIN teaches NATURAL JOIN course GROUP BY dept_name
+
+SELECT * FROM instructor WHERE (dept_name = 'Comp. Sci. ' || salary = salary *2) UNION (SELECT * FROM instructor WHERE dept_name = 'Elec. Eng.' || salary = salary *3)
+
+(SELECT * FROM instructor WHERE (dept_name = 'Comp. Sci. ' || salary = salary *2)) UNION (SELECT * FROM instructor WHERE dept_name = 'Elec. Eng.' || salary = salary *3)
+
+(SELECT course.course_id,course.title FROM course NATURAL JOIN takes WHERE semester = 'Summer' )
+UNION
+(SELECT course.course_id,course.title FROM course NATURAL JOIN takes  WHERE semester = 'Fall' )
